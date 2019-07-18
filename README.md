@@ -34,4 +34,8 @@ The project is based around the starter project supplied by Udacity at ...
     
 ... which included the game engine, resources and starter html.
 
+CSS header text blink supplied by CSS Tricks at ...
+
+    https://css-tricks.com/forums/topic/changing-text-color-with-blink/
+
 

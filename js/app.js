@@ -251,6 +251,18 @@ const ArcadeGame = (() => {
         document.querySelector(".time").innerText = `Time left : ${timeLeft}`;
     }
 
+    // Helper function to display the game on prompt
+    function showGameOn() {
+        document.querySelector('.click-to-start').style.display = 'none';
+        document.querySelector('.game-on').style.display = 'block';
+    }
+
+    // Helper function to display the start game prompt
+    function showGameStart() {
+        document.querySelector('.click-to-start').style.display = 'block';
+        document.querySelector('.game-on').style.display = 'none';
+    }
+
     // Helper function to display the game info and hide the game over info
     function showGameInfo() {
         document.querySelector('.game-over').style.display = 'none';
@@ -305,6 +317,7 @@ const ArcadeGame = (() => {
             // Start the game and update the UI with the game stats
             startGame = true;
             showGameInfo();
+            showGameOn();
 
             // Set the game clock and a timer to decrease the time
             timeLeft = 60;
@@ -327,6 +340,7 @@ const ArcadeGame = (() => {
 
     // Initialize the UI when the page loads
     showGameInfo();
+    showGameStart();
 
     // Set a timer to check the game status every tenth of a second. If the player lives are reduced to zero,
     // or the game clock hits zero, then end the game by showing the game over information, and removing the player, prize and enemies from the canvas
@@ -335,6 +349,7 @@ const ArcadeGame = (() => {
             clearInterval(gameClock);
             startGame = false;
             showGameOver();
+            showGameStart();
             player.x = -100;
             prize.x = -100;
             for (let i = 0; i < 3; i++) {
